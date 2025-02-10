@@ -1,4 +1,5 @@
 ﻿using CustomerRecognitionService.Entities;
+using CustomerRecognitionService.Services.Interfaces;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

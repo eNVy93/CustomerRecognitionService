@@ -20,7 +20,7 @@ namespace CustomerRecognitionService.Controllers
             _mergedCustomerHistoryService = mergedCustomerHistoryService;
         }
 
-        [HttpGet(Name = "GetMergedCustomerHistory")]
+        [HttpGet("GetMergedCustomerHistory",Name = "GetMergedCustomerHistory")]
         public async Task<IActionResult> GetMergedCustomerHistoryAsync()
         {
             _logger.LogInformation($"{nameof(GetMergedCustomerHistoryAsync)} Getting merge customer history.");
@@ -32,10 +32,10 @@ namespace CustomerRecognitionService.Controllers
                 return Problem(result.Message);
             }
 
-            return Ok(result.Data);
+            return Ok(result.Data); 
         }
 
-        [HttpPost(Name = "SaveCustomer")]
+        [HttpPost("SaveCustomer",Name = "SaveCustomer")]
         public async Task<IActionResult> SaveCustomerAsync(Customer data)
         {
             _logger.LogInformation($"{nameof(SaveCustomerAsync)} Saving customer.");

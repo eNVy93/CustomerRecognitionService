@@ -1,6 +1,6 @@
 ﻿using CustomerRecognitionService.Entities;
 
-namespace CustomerRecognitionService.Services
+namespace CustomerRecognitionService.Services.Interfaces
 {
     public interface ICustomerValidationService
     {
