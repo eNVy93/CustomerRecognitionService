@@ -26,12 +26,10 @@ namespace CustomerRecognitionService.Repository
 
         public async Task<List<Customer>> FindDuplicateCustomersAsync(Customer newCustomer)
         {
-            return await _dbContext.Customers
-                    .Where(c => !c.IsMerged && (
-                        c.Email == newCustomer.Email ||
-                        c.PhoneNumber == newCustomer.PhoneNumber ||
-                        (c.FirstName == newCustomer.FirstName && c.LastName == newCustomer.LastName)))
-                    .ToListAsync();
+            return await _dbContext.Customers.Where(c => !c.IsMerged &&
+                    (c.FirstName == newCustomer.FirstName && c.LastName == newCustomer.LastName && c.Email == newCustomer.Email) ||
+                    (c.FirstName == newCustomer.FirstName && c.LastName == newCustomer.LastName && c.PhoneNumber == newCustomer.PhoneNumber))
+                .ToListAsync();
         }
     }
 }
